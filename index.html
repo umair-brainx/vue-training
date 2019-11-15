@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJs Basics Training</title>
+</head>
+<body>
+
+<div id="app">
+    <ol>
+        <!-- Create an instance of the todo-item component -->
+        <todo-item v-for="item in todos" v-bind:todo="item" v-bind:avi="hgg" todo-item></todo-item>
+    </ol>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>Item Text: {{ todo.text }}</li>'
+    });
+
+     new Vue({
+        el: '#app',
+        data: {
+            todos:[
+                {text:'item1'},
+                {text:'item2'},
+                {text:'item3'}
+            ],
+            message: 'Hello Vue!'
+        },
+        created: function () {
+            console.log('a is: ' + this.message)
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</body>
+</html>
